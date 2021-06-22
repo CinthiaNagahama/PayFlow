@@ -4,10 +4,11 @@ import 'package:payflow/shared/themes/app_colors.dart';
 
 class AppTextStyles {
   static final titleHome = GoogleFonts.lexendDeca(
-    fontSize: 32,
+    fontSize: 26,
     fontWeight: FontWeight.w600,
     color: AppColors.heading,
   );
+
   static final titleRegular = GoogleFonts.lexendDeca(
     fontSize: 20,
     fontWeight: FontWeight.w400,
@@ -49,16 +50,19 @@ class AppTextStyles {
     fontWeight: FontWeight.w400,
     color: AppColors.primary,
   );
+
   static final buttonHeading = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: AppColors.heading,
   );
+
   static final buttonGray = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,
     color: AppColors.grey,
   );
+
   static final buttonBackground = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w400,
@@ -70,16 +74,19 @@ class AppTextStyles {
     fontWeight: FontWeight.w700,
     color: AppColors.primary,
   );
+
   static final buttonBoldHeading = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: AppColors.heading,
   );
+
   static final buttonBoldGray = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w700,
     color: AppColors.grey,
   );
+
   static final buttonBoldBackground = GoogleFonts.inter(
     fontSize: 15,
     fontWeight: FontWeight.w700,
