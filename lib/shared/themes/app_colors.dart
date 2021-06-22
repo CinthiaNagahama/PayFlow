@@ -1,7 +1,6 @@
 import "package:flutter/material.dart";
 
 class AppColors {
-  // 29:02
   static final primary = Color(0xFFFF941A);
   static final grey = Color(0xFF585666);
   static final delete = Color(0xFFE83F5B);
