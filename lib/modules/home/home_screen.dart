@@ -71,21 +71,19 @@ class _HomeScreenState extends State<HomeScreen> {
               },
             ),
             GestureDetector(
-              child: Container(
-                height: size.height * 0.08,
-                width: size.height * 0.08,
-                decoration: BoxDecoration(color: AppColors.primary, borderRadius: BorderRadius.circular(5)),
-                child: IconButton(
-                  icon: Icon(
-                    Icons.add_box_outlined,
-                    color: AppColors.background,
-                  ),
-                  onPressed: () {},
-                ),
-              ),
               onTap: () {
                 print("Click");
+                Navigator.pushNamed(context, "/barcode_scanner");
               },
+              child: Container(
+                height: size.height * 0.1,
+                width: size.height * 0.1,
+                decoration: BoxDecoration(color: AppColors.primary, borderRadius: BorderRadius.circular(5)),
+                child: Icon(
+                  Icons.add_box_outlined,
+                  color: AppColors.background,
+                ),
+              ),
             ),
             IconButton(
               icon: Icon(
