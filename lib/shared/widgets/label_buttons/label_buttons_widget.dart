@@ -11,14 +11,17 @@ class LabelButtonsW extends StatelessWidget {
   final String rightLabel;
   final VoidCallback rightOnPressed;
 
-  final bool enablePrimaryColor;
+  final bool enablePrimaryColorLeft;
+  final bool enablePrimaryColorRight;
+
   const LabelButtonsW({
     Key? key,
     required this.leftLabel,
     required this.leftOnPressed,
     required this.rightLabel,
     required this.rightOnPressed,
-    this.enablePrimaryColor = false,
+    this.enablePrimaryColorLeft = false,
+    this.enablePrimaryColorRight = false,
   }) : super(key: key);
 
   @override
@@ -27,21 +30,35 @@ class LabelButtonsW extends StatelessWidget {
 
     return Container(
       height: size.height * 0.1,
-      color: AppColors.shape,
-      child: Row(
+      color: AppColors.background,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
         children: [
-          Expanded(
-            child: LabelButton(
-              label: leftLabel,
-              onPressed: leftOnPressed,
-              style: enablePrimaryColor ? AppTextStyles.buttonPrimary : null,
-            ),
+          Divider(
+            thickness: 1,
+            height: 1,
+            color: AppColors.stroke,
           ),
-          VerticalDividerW(),
-          Expanded(
-            child: LabelButton(
-              label: rightLabel,
-              onPressed: rightOnPressed,
+          Container(
+            height: size.height * 0.1 - 1,
+            child: Row(
+              children: [
+                Expanded(
+                  child: LabelButton(
+                    label: leftLabel,
+                    onPressed: leftOnPressed,
+                    style: enablePrimaryColorLeft ? AppTextStyles.buttonPrimary : null,
+                  ),
+                ),
+                VerticalDividerW(),
+                Expanded(
+                  child: LabelButton(
+                    label: rightLabel,
+                    onPressed: rightOnPressed,
+                    style: enablePrimaryColorRight ? AppTextStyles.buttonPrimary : null,
+                  ),
+                ),
+              ],
             ),
           ),
         ],

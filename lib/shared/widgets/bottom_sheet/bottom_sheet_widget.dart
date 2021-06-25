@@ -63,9 +63,9 @@ class BottomSheetW extends StatelessWidget {
                     LabelButtonsW(
                       leftLabel: leftLabel,
                       leftOnPressed: leftOnPressed,
+                      enablePrimaryColorLeft: true,
                       rightLabel: rightLabel,
                       rightOnPressed: rightOnPressed,
-                      enablePrimaryColor: true,
                     )
                   ],
                 ),
