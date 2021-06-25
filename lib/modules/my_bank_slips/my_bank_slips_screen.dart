@@ -1,3 +1,4 @@
+import 'package:animated_card/animated_card.dart';
 import 'package:flutter/material.dart';
 import 'package:payflow/shared/models/slip_model.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
@@ -34,7 +35,10 @@ class _MyBankSlipsScreenState extends State<MyBankSlipsScreen> {
                 padding: const EdgeInsets.symmetric(horizontal: 24),
                 child: ValueListenableBuilder<List<SlipModel>>(
                   valueListenable: controller.slipsNotifier,
-                  builder: (_, slips, __) => SlipInfoW(quantity: slips.length),
+                  builder: (_, slips, __) => AnimatedCard(
+                    direction: AnimatedCardDirection.top,
+                    child: SlipInfoW(quantity: slips.length),
+                  ),
                 ),
               ),
             ],
