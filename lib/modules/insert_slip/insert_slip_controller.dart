@@ -15,7 +15,7 @@ class InsertSlipController {
     if (int.parse(value!.substring(0, 2)) > 31 ||
         int.parse(value.substring(3, 5)) > 12 ||
         int.parse(value.substring(6, 10)) < 2021) {
-      return "Data inválida";
+      return "Data de vencimento inválida";
     }
   }
 

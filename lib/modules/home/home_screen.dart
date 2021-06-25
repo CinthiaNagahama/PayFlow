@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:payflow/modules/bank_statements_screen/bank_statement_screen.dart';
 import 'package:payflow/modules/home/home_controller.dart';
+import 'package:payflow/modules/my_bank_slips/my_bank_slips_screen.dart';
 import 'package:payflow/shared/themes/app_colors.dart';
 import 'package:payflow/shared/themes/app_text_styles.dart';
 
@@ -13,12 +15,13 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   final homeController = HomeController();
   final pages = [
-    Container(color: Colors.red),
-    Container(color: Colors.blue),
+    Container(
+      child: MyBankSlipsScreen(),
+    ),
+    Container(
+      child: BankStatementScreen(),
+    ),
   ];
-
-  Color homeButtonColor = AppColors.primary;
-  Color slipButtonColor = AppColors.body;
 
   @override
   Widget build(BuildContext context) {
@@ -61,19 +64,18 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               icon: Icon(
                 Icons.home,
-                color: homeButtonColor,
+                color: homeController.currentPage == 0 ? AppColors.primary : AppColors.body,
               ),
               onPressed: () {
                 homeController.setPage(0);
-                homeButtonColor = AppColors.primary;
-                slipButtonColor = AppColors.body;
                 setState(() {});
               },
             ),
             GestureDetector(
               onTap: () {
                 print("Click");
-                Navigator.pushNamed(context, "/barcode_scanner");
+                // Navigator.pushNamed(context, "/barcode_scanner");
+                Navigator.pushNamed(context, "/insert_slip");
               },
               child: Container(
                 height: size.height * 0.1,
@@ -88,12 +90,10 @@ class _HomeScreenState extends State<HomeScreen> {
             IconButton(
               icon: Icon(
                 Icons.description_outlined,
-                color: slipButtonColor,
+                color: homeController.currentPage == 1 ? AppColors.primary : AppColors.body,
               ),
               onPressed: () {
                 homeController.setPage(1);
-                homeButtonColor = AppColors.body;
-                slipButtonColor = AppColors.primary;
                 setState(() {});
               },
             ),
