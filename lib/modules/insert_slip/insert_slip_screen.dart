@@ -111,8 +111,9 @@ class _InsertSlipScreenState extends State<InsertSlipScreen> {
         },
         rightLabel: "Cadastrar",
         rightOnPressed: () async {
-          await controller.registerSlip();
-          Navigator.pop(context);
+          if (await controller.registerSlip()) {
+            Navigator.pop(context);
+          }
         },
         enablePrimaryColorRight: true,
       ),

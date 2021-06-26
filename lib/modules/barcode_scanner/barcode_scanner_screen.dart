@@ -21,7 +21,7 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
     controller.getAvailableCameras();
     controller.statusNotifier.addListener(() {
       if (controller.status.hasBarcode) {
-        Navigator.pushReplacementNamed(context, "/insert_slip");
+        Navigator.pushReplacementNamed(context, "/insert_slip", arguments: controller.status.barcode);
       }
     });
     super.initState();
@@ -79,7 +79,7 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
               bottomNavigationBar: LabelButtonsW(
                 leftLabel: "Inserir código do boleto",
                 leftOnPressed: () {
-                  Navigator.pushReplacementNamed(context, "/insert_slip");
+                  Navigator.pushReplacementNamed(context, "/insert_slip", arguments: "");
                 },
                 rightLabel: "Adicionar da galeria",
                 rightOnPressed: () {},
@@ -97,7 +97,7 @@ class _BarcodeScannerScreenState extends State<BarcodeScannerScreen> {
                   },
                   rightLabel: "Digitar código",
                   rightOnPressed: () {
-                    Navigator.pushReplacementNamed(context, "/insert_slip");
+                    Navigator.pushReplacementNamed(context, "/insert_slip", arguments: "");
                   },
                   title: "Não foi possível identificar um código de barras.",
                   subtitle: "Tente escanear novamente ou digite o código do seu boleto",

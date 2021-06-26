@@ -14,8 +14,15 @@ class InsertSlipController {
 
     if (int.parse(value!.substring(0, 2)) > 31 ||
         int.parse(value.substring(3, 5)) > 12 ||
-        int.parse(value.substring(6, 10)) < 2021) {
+        value.substring(6, value.length).length < 4) {
       return "Data de vencimento inválida";
+    }
+
+    DateTime today = new DateTime.now();
+
+    if (!today.isBefore(DateTime(int.parse(value.substring(6, value.length)), int.parse(value.substring(3, 5)),
+        int.parse(value.substring(0, 2))))) {
+      return "Data de vencimento deve ser posterior a data autal";
     }
   }
 
@@ -38,11 +45,14 @@ class InsertSlipController {
     }
   }
 
-  Future<void> registerSlip() async {
+  Future<bool> registerSlip() async {
     final form = formKey.currentState;
 
     if (form!.validate()) {
-      return await saveSlip();
+      await saveSlip();
+      return true;
+    } else {
+      return false;
     }
   }
 }
